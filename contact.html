@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #7EBFEA, #7EBFEA);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navbar Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .logo {
+            width: 83px;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        .topnav a:hover {
+            background-color: #00a2ff;
+            color: #fff;
+        }
+        .topnav a.active {
+            background-color: #0278ff;
+            color: #fff;
+        }
+        .topnav .icon {
+            display: none;
+        }
+        @media screen and (max-width: 600px) {
+            .topnav a { display: none; }
+            .topnav a.icon {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .topnav.responsive { position: relative; }
+            .topnav.responsive a {
+                display: block;
+                float: none;
+                text-align: left;
+            }
+        }
+
+        /* Main Contact Section Styling */
+        .contact-section {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+        .contact-container, .contact-info {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: box-shadow 0.3s ease;
+        }
+        .contact-container:hover, .contact-info:hover {
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+        .contact-container h2 {
+            color: #007bf6;
+            font-weight: 600;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form Input Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #007bf6;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 246, 0.2);
+        }
+        input[type="submit"] {
+            background-color: #007bf6;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Contact Information */
+        .contact-info {
+            background: linear-gradient(to bottom right, #007bf6, #2c8cc5);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .contact-info p, .contact-info a {
+            font-size: 18px;
+            color: #f0f8ff;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+        .contact-info a {
+            color: #f0f8ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #ffdd57;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .contact-info h3 {
+                font-size: 22px;
+            }
+            .contact-info p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navbar -->
+    <header>
+        <div class="logo-div">
+            <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="projecten.html">Projects</a>
+            <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+            <a href="contact.html" class="active">Contact</a>
+            <!-- <a href="feedback.html">Feedback</a> -->
+            <a href="snakegame.html">Snake game!</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Contact Section -->
+    <div class="contact-section">
+        
+        <!-- Contact Form Container -->
+        <div class="contact-container">
+            <h2>Contactformulier</h2>
+            <form action="verzend.php" method="POST">
+                <label for="naam">Naam:</label>
+                <input type="text" id="naam" name="naam" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="onderwerp">Onderwerp:</label>
+                <input type="text" id="onderwerp" name="onderwerp" required>
+
+                <label for="bericht">Bericht:</label>
+                <textarea id="bericht" name="bericht" rows="5" required></textarea>
+
+                <input type="submit" value="Verzenden">
+            </form>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="contact-info">
+            <h3>Contactgegevens</h3>
+            <p>Neem gerust contact met mij op zo nodig!</p>
+            <p>Email: <a href="mailto:tiescristiano@gmail.com">tiescristiano@gmail.com</a></p>
+            <p>Telefoon: <a href="tel:+31633101041">+31 6 33101041</a></p>
+        </div>
+    </div>
+
+    <!-- Responsive Navbar Script -->
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</body>
+</html>
