@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="medium.css">
+    <link rel="stylesheet" href="small.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Skills</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #7EBFEA;
+        }
+        .skills-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .skills-section h1 {
+            color: white; /* Aangepast naar wit */
+        }
+        .fotos-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px;
+        }
+        .html-container, .css-container, .php-container, .wordpress-container, .javascript-container {
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+        .html-container:hover, .css-container:hover, .php-container:hover, .wordpress-container:hover, .javascript-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        .topnav a {
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .footer-portfolio {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div" style="padding: 10px;">
+            <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+        </div>
+        <div class="topnav" id="myTopnav" style="text-align: center; background: #333; padding: 10px;">
+            <a href="index.html">Home</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="aboutme.html">About me</a>
+            <a href="projecten.html">Projecten</a>
+            <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+            <a href="contact.html">Contact</a>
+            <!-- <a href="feedback.html">Feedback</a> -->
+            <a href="snakegame.html">Snake game!</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+<section class="skills-section">
+    <h1>Mijn Vaardigheden</h1>
+</section>
+
+<section class="fotos-section">
+    <div class="html-container">
+        <img class="html-image" src="images/HTML5_logo_and_wordmark.svg.png" alt="HTML5 Logo">
+        <p>Ik beheers HTML5 volledig en kan gestructureerde, semantische en goed geoptimaliseerde webpagina's maken.</p>
+    </div>
+    <div class="css-container">
+        <img class="css-image" src="images/CSS-Logo.png" alt="CSS3 Logo">
+        <p>Met CSS3 kan ik responsieve en aantrekkelijke ontwerpen maken die werken op alle apparaten en schermformaten.</p>
+    </div>
+    <div class="php-container">
+        <img class="php-image" src="images/php-1-logo-png-transparent (1).png" alt="PHP Logo">
+        <p>Ik heb ervaring met PHP en kan dynamische webapplicaties bouwen, inclusief database-integraties en server-side logica.</p>
+    </div>
+    <div class="wordpress-container">
+        <img class="wordpress-image" src="images/wordpress.png" alt="WordPress Logo">
+        <p>Ik beheers WordPress en kan professionele websites bouwen, aanpassen en optimaliseren met thema's en plugins.</p>
+    </div>
+    <div class="javascript-container">
+        <img class="javascript-image" src="images/javascript-logo-javascript-icon-transparent-free-png.webp" alt="JavaScript Logo">
+        <p>Ik heb een basiskennis van JavaScript en kan eenvoudige interactieve elementen aan webpagina's toevoegen.</p>
+    </div>
+</section>
+
+<footer class="footer-portfolio">  
+    <a href="https://www.linkedin.com/in/ties-stapper/" style="color: white;">LinkedIn Ties</a> 
+    <div id="dateTime" class="date-time"></div>
+</footer>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    function displayDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById("dateTime").textContent = now.toLocaleDateString('nl-NL', options);
+    }
+
+    document.addEventListener("DOMContentLoaded", displayDateTime);
+</script>
+
+</body>
+</html>

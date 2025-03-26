@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="medium.css">
+    <link rel="stylesheet" href="small.css">
+    <link rel="javascript" href="java.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>About me</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #7EBFEA;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;     
+            background: #333;
+        }
+
+        .logo-div img {
+            width: 100px;
+        }
+
+        .topnav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .topnav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            background: rgb(65, 185, 255);
+            transition: 0.3s;
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            color: white; /* Aangepast naar wit */
+            margin-bottom: 30px;
+        }
+
+        .about-me-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .about-me-fake-text {
+            margin-top: 20px;
+        }
+
+        /* Media Section */
+        .image-video-holder {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-me-foto-outer-div,
+        .about-me-video-outer-div {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .kast-image {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-goal {
+            width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer-portfolio {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: white;
+            font-size: 1em;
+        }
+
+        .footer-portfolio a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Date-Time */
+        .date-time {
+            font-size: 20px;
+            color: #4000ff;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .image-video-holder {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .topnav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="aboutme.html">About me</a>
+            <a href="projecten.html">Projecten</a>
+            <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+            <a href="contact.html">Contact</a>
+            <!-- <a href="feedback.html"></a>Feedback</a> -->
+            <a href="snakegame.html">Snake game!</a>
+
+            <!-- <a href="snake.html">Snake game !</a> -->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+          
+
+
+        </div>
+    </header>
+
+<section class="about-section">
+    <h2>About Me</h2>
+    <div class="about-me-text">
+        <p class="about-me-fake-text">
+            Mijn naam is Ties Cristiano Stapper, ik ben 19 jaar oud, geboren in Amsterdam en opgegroeid in Amstelveen. Mijn hobby's zijn voetbal en gymmen. Ik voetbal nu al meer dan 13 jaar bij de voetbalclub Roda23 in Amstelveen.<br>
+            In het veld sta ik linksachter en ga ik vaak mee naar voren in de aanvallen, oftewel de rol van Alejandro Balde.<br>
+            Ook gym ik nu al anderhalf jaar bij Basic Fit in Amstelveen. Ik hecht veel waarde aan een gezond en fit lichaam.<br>
+        </p>
+    </div>
+
+    <div class="image-video-holder">
+        <div class="about-me-foto-outer-div">
+            <img class="kast-image" src="images/gym ties.jpg" alt="Foto">
+        </div>
+        <div class="about-me-video-outer-div">
+            <video class="video-goal" controls src="images/IMG_97194359.MOV"></video>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-portfolio">
+    <a href="https://www.linkedin.com/in/ties-stapper/" target="_blank">LinkedIn Ties</a>
+    <div id="dateTime" class="date-time"></div>
+</footer>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    // Functie om de huidige datum en tijd te tonen
+    function displayDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById("dateTime").textContent = now.toLocaleDateString('nl-NL', options);
+    }
+
+    document.addEventListener("DOMContentLoaded", displayDateTime);
+</script>
+
+</body>
+</html>
