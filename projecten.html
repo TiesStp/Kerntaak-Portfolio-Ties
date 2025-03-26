@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #7EBFEA, #7EBFEA);
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-div img {
+            width: 90px;
+        }
+
+        .topnav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .topnav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            background: rgb(65, 185, 255);
+            transition: 0.3s;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .main-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card .icon {
+            font-size: 40px;
+            color: #56CCF2;
+            margin-bottom: 10px;
+        }
+
+        .project-card h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #56CCF2;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-card a:hover {
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #56CCF2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Date-Time */
+        .date-time {
+            font-size: 20px;
+            color: #4000ff;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .topnav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .main-content h1 {
+                font-size: 36px;
+            }
+
+            .topnav .icon {
+                display: block;
+            }
+
+            .topnav.responsive {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Small Screen Toggle (Hamburger Menu) */
+        @media (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-div">
+        <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+    </div>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="projecten.html" class="active">Projects</a>
+        <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+        <a href="contact.html">Contact</a>
+        <!-- <a href="feedback.html">Feedback</a> -->
+        <a href="snakegame.html">Snake game!</a>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+<main class="main-content">
+    <h1>Mijn projecten</h1>
+    <p>Ontdek mijn projecten op GitHub. Klik op de onderstaande links voor meer informatie over elk ervan.</p>
+
+    <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <div class="icon"><i class="fa fa-code"></i></div>
+            <h2>Project 1: PHP Basics</h2>
+            <p>Leer de basisprincipes van PHP-programmeren door middel van kleine projecten en oefeningen.</p>
+            <a href="https://github.com/TiesStp/PHP-BASIC-C0" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <div class="icon"><i class="fa fa-laptop"></i></div>
+            <h2>Project 2: Front-end</h2>
+            <p>Ontdek mijn front-end projecten, inclusief dynamische menu's en interactieve lay-outs.</p>
+            <a href="https://github.com/TiesStp/C21-Front-End-Level-1" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <div class="icon"><i class="fa fa-cogs"></i></div>
+            <h2>Project 3: PHP Advanced</h2>
+            <p>Geavanceerde PHP-applicaties, waaronder een functionele rekenmachine en meer.</p>
+            <a href="https://github.com/TiesStp/PHP-ADVANCED" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <div class="icon"><i class="fa fa-database"></i></div>
+            <h2>Project 4: SQL Database</h2>
+            <p>Ontdek SQL-databaseprojecten, inclusief query's en gegevensmanipulatie.</p>
+            <a href="https://github.com/TiesStp/SQL-Projects" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+</main>
+
+<section>
+    <script>
+        // Functie om de huidige datum en tijd te tonen
+        function displayDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById("dateTime").textContent = now.toLocaleDateString('nl-NL', options);
+        }
+        // Roep de functie aan bij het laden van de pagina
+        document.addEventListener("DOMContentLoaded", displayDateTime);
+    </script>
+</section>
+
+<footer>
+    <p>&copy; 2023 Ties Stapper | <a href="https://www.linkedin.com/in/ties-stapper/">LinkedIn</a></p>
+    <div id="dateTime" class="date-time"></div>
+</footer>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</body>
+</html>
