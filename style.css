@@ -1,0 +1,309 @@
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #7EBFEA; 
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo-div {
+    
+}
+
+.logo {
+    width: 83px; 
+}
+
+
+.topnav {
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #00a2ff;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #0278ff;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive .icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+
+    .topnav.responsive a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+
+.home-page-section {
+    padding: 90px;
+}
+
+.home-page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.foto-div {
+    margin: 20px;
+    width: 320px;
+    height: 400px; 
+    background-color: grey;
+    position: relative;
+    box-shadow: 0px 0px 20px black;
+}
+
+.ties-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.text-pagina1 {
+    max-width: 600px;
+    margin: 20px;
+}
+
+.mijn-portfolio-div {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.discription-div {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.next-page-button-div {
+    text-align: center;
+}
+
+.next-page-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00CCFF;
+    color: white;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.next-page-button:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+
+
+
+.skills-section {
+    /* border: 5px solid blue; */
+    padding-top: 50px;
+}
+
+.skills-text-div {
+    width: 200px;
+    height: 40px;
+    left: 10px;
+    bottom: 40px;
+    margin-bottom: 20px;
+    background-color: #333333;
+    box-shadow: 0px 0px 20px black;
+}
+
+.skills-section h1 {
+    font-size: xx-large;
+    position: absolute;
+    left: 10px;
+    top: 115px;
+    color: white;
+}
+
+.fotos-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.html-div,
+.css-div,
+.php-div {
+    width: 300px;
+    height: 300px;
+    background-color: 00B1FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-skills {
+    font-size: xx-large;
+}
+
+.html-image {
+    width: 100%;
+    height: auto;
+    
+}
+
+.css-image{
+    width: 100%;
+    height: auto;
+}
+
+.php-image{
+    width: 100%;
+    height: auto;
+}
+
+.lorem-text {
+    font-size: medium;
+    text-align: justify;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.about-section {
+    /* border: 5px solid blue; */
+    padding-top: 50px;
+}
+
+.about-section-wrapper{
+    /* border: 2px solid red; */
+}
+
+.about-me-text {
+    width: 86%;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color:  #333333;
+    /* border: 1px solid green; */
+}
+
+h2{
+     left: 10px;
+    color: white;
+    position: absolute;
+}
+
+.image-video-holder{
+    /* border: 2px solid orange; */
+}
+
+.about-me-foto-outer-div{
+    width: 48%;
+    float: left;
+    height: 600px;
+    display: grid;
+    place-items: center;
+    /* border: 1px solid green; */
+}
+
+.kast-image{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 20px black;
+}
+
+.about-me-foto-inner-div{
+    width: 300px;
+    height: 500px;
+    float: left;
+    background: grey;
+    /* border: 1px solid blue; */
+}
+
+.about-me-video-outer-div{
+    display: grid;
+    width: 48%;
+    height: 600px;
+    place-items: center;
+    /* border: 1px solid green; */
+}
+
+.about-me-video-inner-div{
+    width: 300px;
+    height: 500px;
+    float: left;
+    background: grey;
+}
+
+.video-goal{
+    box-shadow: 0px 0px 20px black;
+}
+
+.about-me-fake-text{
+    position: relative;
+    top: 70px;
+    left: 40px;
+}
+
+.about-me-foto-text{
+    
+    /* border: 1px solid orange; */
+}   
+
+.about-me-vid-text{
+  /* border: 1px solid blue; */
+}
+
+.footer-portfolio{
+    text-align: center;
+    padding: 11.5px;
+    background-color: #00CCFF;
+    
+    
+}
+
+
