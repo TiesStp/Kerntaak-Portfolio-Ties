@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="javascript" href="java.js">
+    <link rel="stylesheet" href="style.css">
+    <title>Snake Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background: linear-gradient(45deg, #111, #333); */
+            font-family: Arial, sans-serif;
+           background-color: #7EBFEA;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        header {
+         background-color: #333333; 
+        color: lightblue; 
+        height: 120px;
+        /* display: flex; */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+    font-family: 'Karla', sans-serif; 
+        }
+
+        .logo-div {
+            display: inline-block;
+        }
+
+        .topnav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .topnav a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            margin-top: 120px; /* Ensure space for header */
+            padding: 0 20px;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            margin-top: 50px; /* Adjust to ensure space from the intro */
+            margin-bottom: 50px; /* To prevent too much space under the game */
+            position: relative;
+        }
+
+        canvas {
+            background: #000;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .score {
+            position: absolute;
+            color: white;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            z-index: 2; /* Ensures the score is always on top */
+        }
+
+        .game-over {
+            position: absolute;
+            top: 65%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            display: none;
+            z-index: 1; /* Game over message stays below the score */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-div">
+            <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="aboutme.html">About me</a>
+            <a href="projecten.html">Projecten</a>
+            <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+            <a href="contact.html">Contact</a>
+            <!-- <a href="feedback.html">Feedback</a> -->
+            <a href="snakegame.html">Snake game !</a>
+        </div>
+    </header>
+
+    <div class="intro">
+        <h1>Welkom bij mijn Snake Game!</h1>
+        <p>In dit spel bestuur je een slang die steeds langer wordt naarmate hij voedsel eet. Dit is een simpel maar verslavend spel dat ik heb ontwikkeld als onderdeel van mijn portfolio. Het toont mijn vaardigheden in JavaScript, HTML5 en het gebruik van canvas-elementen. Gebruik de pijltjestoetsen om de slang te besturen en probeer je score te verhogen door het voedsel te verzamelen.</p>
+        <p>Veel plezier!</p>
+    </div>
+
+    <div class="game-container">
+        <div>
+            <div class="score" id="score">Score: 0</div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const box = 20;
+        let snake = [{ x: 10 * box, y: 10 * box }];
+        let direction = "RIGHT";
+        let food = {
+            x: Math.floor(Math.random() * 20) * box,
+            y: Math.floor(Math.random() * 20) * box
+        };
+        let score = 0;
+
+        document.addEventListener("keydown", changeDirection);
+
+        function changeDirection(event) {
+            const key = event.keyCode;
+            if (key === 37 && direction !== "RIGHT") direction = "LEFT";
+            else if (key === 38 && direction !== "DOWN") direction = "UP";
+            else if (key === 39 && direction !== "LEFT") direction = "RIGHT";
+            else if (key === 40 && direction !== "UP") direction = "DOWN";
+        }
+
+        function drawGrid() {
+            ctx.strokeStyle = "#333";
+            for (let i = 0; i < canvas.width / box; i++) {
+                // Verticale lijnen
+                ctx.beginPath();
+                ctx.moveTo(i * box, 0);
+                ctx.lineTo(i * box, canvas.height);
+                ctx.stroke();
+
+                // Horizontale lijnen
+                ctx.beginPath();
+                ctx.moveTo(0, i * box);
+                ctx.lineTo(canvas.width, i * box);
+                ctx.stroke();
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear the canvas
+
+            // Draw grid
+            drawGrid();
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, box, box);
+
+            ctx.fillStyle = "lime";
+            snake.forEach((segment, index) => {
+                ctx.fillRect(segment.x, segment.y, box, box);
+            });
+
+            let newHead = { ...snake[0] };
+            if (direction === "LEFT") newHead.x -= box;
+            if (direction === "UP") newHead.y -= box;
+            if (direction === "RIGHT") newHead.x += box;
+            if (direction === "DOWN") newHead.y += box;
+
+            if (newHead.x === food.x && newHead.y === food.y) {
+                food = {
+                    x: Math.floor(Math.random() * 20) * box,
+                    y: Math.floor(Math.random() * 20) * box
+                };
+                score += 10; // Increase score
+                document.getElementById("score").innerText = "Score: " + score;
+            } else {
+                snake.pop();
+            }
+
+            if (
+                newHead.x < 0 ||
+                newHead.y < 0 ||
+                newHead.x >= canvas.width ||
+                newHead.y >= canvas.height ||
+                snake.some(segment => segment.x === newHead.x && segment.y === newHead.y)
+            ) {
+                clearInterval(game);
+                document.querySelector('.game-over').style.display = 'block';
+                return;
+            }
+
+            snake.unshift(newHead);
+        }
+
+        let game = setInterval(draw, 100);
+
+        // Game Over Message
+        const gameOverMessage = document.createElement('div');
+        gameOverMessage.classList.add('game-over');
+        gameOverMessage.innerText = 'Game Over\nKlik hier om opnieuw te beginnen!';
+        gameOverMessage.style.display = 'none';
+        document.body.appendChild(gameOverMessage);
+
+        gameOverMessage.addEventListener('click', () => {
+            location.reload();
+        });
+    </script>
+</body>
+</html>
