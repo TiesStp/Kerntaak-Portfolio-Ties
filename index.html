@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="javascript" href="java.js">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <div class="logo-div">
+            <img class="logo" src="images/LogoMakr-2XdjEi.png" alt="Logo">
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Home</a>
+            <a href="skills.html">Skills</a>
+            <a href="aboutme.html">About me</a>
+            <a href="projecten.html">Projecten</a>
+            <a href="ProjectenOverzicht.html">ProjectenOverzicht</a>
+            <a href="contact.html">Contact</a>
+            <!-- <a href="feedback.html"></a>Feedback</a> -->
+            <a href="snakegame.html">Snake game!</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+          
+
+
+        </div>
+    </header>
+
+    <section class="home-page-section">
+        <div class="home-page-wrapper">
+            <div class="left-side">
+                <div class="foto-div">
+                    <img class="ties-image" src="images/TIES picca.jpg" alt="Ties Stapper">
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="text-pagina1">
+                    <div class="mijn-portfolio-div">
+                        <p>Mijn portfolio</p>
+                    </div>
+                    <div class="discription-div">
+                        <p>Hallo! Mijn naam is Ties Stapper en ik ben een Software developer in opleiding.
+                            Mijn passie ligt bij het maken van websites met HTML en CSS.
+                            Ik zit nu in mijn 3e jaar van mijn opleiding en loop stage bij het bedrijf Tecsology.
+                            Dit bedrijf heeft mij in maar een paar maanden tijd geleerd om vanaf scratch een website te bouwen met HTML5 en CSS3 zonder ChatGPT te gebruiken.
+                            Dit portfolio is samengesteld om een algemeen overzicht te geven over mij en mijn skills. Ik hoop dat je er van geniet, klik op de explore button om verder te kijken!
+                        </p>
+                    </div>
+                    <div class="next-page-button-div">
+                        <a href="skills.html">
+                            <button class="next-page-button">Explore</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <style>
+            .date-time {
+            font-size: 20px;
+            color: #4000ff;
+            text-align: left;
+            margin-top: 10px;
+        }
+        
+        </style>
+        
+        <script>
+                // Functie om de huidige datum en tijd te tonen
+        function displayDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById("dateTime").textContent = now.toLocaleDateString('nl-NL', options);
+        }
+        
+        // Roep de functie aan bij het laden van de pagina
+        document.addEventListener("DOMContentLoaded", displayDateTime);
+        </script>
+    </section>
+
+    <footer class="footer-portfolio">
+        <a href="https://www.linkedin.com/in/ties-stapper/">LinkedIn Ties</a>
+        <div id="dateTime" class="date-time"></div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+</body>
+</html>
